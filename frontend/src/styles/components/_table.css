@@ -1,0 +1,14 @@
+.table {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0; }
+  .table-cell {
+    box-sizing: border-box;
+    flex-grow: 1;
+    width: 25%;
+    padding: 0.8em 1.2em;
+    overflow: hidden;
+    list-style: none;
+    border: solid 1px white;
+    background: slategrey; }

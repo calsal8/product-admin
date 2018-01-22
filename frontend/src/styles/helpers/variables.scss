@@ -1,0 +1,90 @@
+//////////////////////
+// Font
+//////////////////////
+
+$font-family-regular: "Quicksand", sans-serif;
+$font-family-default: Arial, sans-serif;
+
+$font-size-headline-xxl: 60px;
+$font-size-headline-xl:  32px;
+$font-size-headline-lg:  29px;
+$font-size-headline-md:  23px;
+$font-size-headline-sm:  20px;
+$font-size-headline-xs:  18px;
+$font-size-headline-xxs: 15px;
+
+$font-size-text:        16px;
+$font-size-text-xs:     12px;
+$font-size-text-sm:     14px;
+$font-size-text-lg:     18px;
+$font-size-preamble:    20px;
+$font-size-btn:         $font-size-text;
+$font-size-btn-sm:      $font-size-text-sm;
+$font-size-btn-lg:      18px;
+$font-size-link:        18px;
+$font-size-input:       $font-size-text;
+
+//////////////////////
+// Colors
+//////////////////////
+$color-base: #fffae7;
+$color-brand: #DE907E;
+$color-black: #333333;
+$color-grey-light: #ededed;
+$color-white: #FFFFFF;
+$color-green: #7ede99;
+$color-green-dark: #5ca571;
+$color-yellow: #eef17e;
+$color-blue: blue;
+$color-blue-light: #7ec6de;
+$color-navy: navy;
+$color-red: #e30613;
+$color-wine: #ad1015;
+
+$color-input-bg: #f4f4f4;
+
+//////////////////////
+// Media Queries
+//////////////////////
+
+$nav-break-point-up: md-up;
+$nav-break-point-down: sm-down;
+
+$screen-xs: 600px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+
+$screen-xs-min: $screen-xs;
+$screen-sm-min: $screen-sm;
+$screen-md-min: $screen-md;
+$screen-lg-min: $screen-lg;
+
+$screen-xxs-max: ($screen-xs-min - 1);
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+
+$breakpoints: (
+        xxs: $screen-xxs-max,
+        xs: $screen-xs,
+        sm: $screen-sm,
+        md: $screen-md,
+        lg: $screen-lg
+);
+
+$breakpointsMax: (
+        xxs: $screen-xxs-max,
+        xs: $screen-xs-max,
+        sm: $screen-sm-max,
+        md: $screen-md-max,
+        lg: $screen-lg
+);
+
+$breakpointsMin: (
+        xxs: $screen-xxs-max,
+        xs: $screen-xs-min,
+        sm: $screen-sm-min,
+        md: $screen-md-min,
+        lg: $screen-lg-min
+);

@@ -1,0 +1,26 @@
+.table {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  margin: 0;
+  padding: 10px 0;
+
+  &__cell {
+    box-sizing: border-box;
+    flex-grow: 1;
+    width: 25%;
+    padding: 0.8em 1.2em;
+    overflow: hidden;
+    font-size: $font-size-text-lg;
+    list-style: none;
+  }
+
+  &__btn {
+    position: initial;
+    color: $color-black;
+
+    &:before {
+      background: $color-brand;
+    }
+  }
+}

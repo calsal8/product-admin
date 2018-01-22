@@ -1,0 +1,14 @@
+/* Base and helpers */
+@import "styles/helpers/variables.scss";
+@import "styles/helpers/mixins.scss";
+@import "styles/general.scss";
+
+/* Component styling */
+@import "styles/components/btn.scss";
+@import "styles/components/form.scss";
+@import "styles/components/input.scss";
+@import "styles/components/modal.scss";
+@import "styles/components/product.scss";
+@import "styles/components/pie-chart.scss";
+@import "styles/components/spinner.scss";
+@import "styles/components/table.scss";

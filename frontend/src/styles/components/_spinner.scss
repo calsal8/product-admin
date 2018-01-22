@@ -1,0 +1,252 @@
+$animation-curve: cubic-bezier(0.445, 0.2, 0.665, 0.81);
+$spinnerScale: spinnerScale;
+$spinnerScaleCircle: spinnerScaleCircle;
+
+/**
+ * Applied to svg selector
+ **/
+@mixin lf-spinner($circle-color, $inner-color, $animation-name) {
+  transform: rotate(-110deg);
+  border-radius: 50%;
+  background: $circle-color;
+  color: $inner-color;
+  display: block;
+  animation: spinnerRotate 1.2s infinite $animation-curve;
+  -webkit-animation: spinnerRotate 1.2s infinite $animation-curve;
+
+  .lf-spinner-figure {
+    @extend .pie-figure;
+
+    animation: $animation-name 1.2s infinite $animation-curve;
+    -webkit-animation: $animation-name 1.2s infinite $animation-curve;
+  }
+
+  &::after {
+    @extend .pie::after;
+  }
+}
+
+/**
+ * Base layout
+ **/
+.lf-spinner {
+  @extend .pie;
+  position: absolute;
+  width: 10em;
+  height: 10em;
+  top: 0;
+  margin-top: .6em;
+  left: calc(50% - 10px);
+  transform: translateX(-50%);
+
+  &--small {
+    width: 4em;
+    height: 4em;
+    top: calc(50% - 2em)
+  }
+}
+
+.lf-spinner-line {
+  @extend .pie-line;
+}
+
+.lf-spinner-line-axis {
+  @extend .pie-line-axis;
+
+  animation: spinnerAxisRotate 1.2s infinite $animation-curve;
+}
+
+/**
+ * Spinner variants!
+ **/
+.lf-spinner svg {
+  @include lf-spinner($color-blue, $color-red, spinnerScale);
+}
+
+.lf-spinner.lf-spinner-btn-outline svg {
+  @include lf-spinner($color-white, $color-wine, spinnerScaleCircle);
+
+  transition: all 100ms linear;
+}
+
+.lf-spinner.lf-spinner-btn-outline-secondary svg {
+  @include lf-spinner($color-white, $color-navy, spinnerScaleCircle);
+
+  transition: all 100ms linear;
+}
+
+.lf-spinner.lf-spinner-btn-primary svg {
+  @include lf-spinner($color-wine, $color-white, spinnerScaleCircle);
+
+  transition: all 100ms linear;
+}
+
+/**
+ * btn-primary spinner states
+ **/
+.lf-spinner.lf-spinner-btn-primary::after {
+  @extend .pie::after;
+
+  background: $color-wine;
+  border: 1px solid $color-wine;
+  transition: 100ms linear;
+}
+
+.btn-primary:hover:not(.disabled):not(:disabled) {
+  .lf-spinner.lf-spinner-btn-primary svg {
+    background: darken($color-wine, 6%);
+    transition: background 100ms linear;
+  }
+
+  .lf-spinner.lf-spinner-btn-primary::after {
+    background: darken($color-wine, 6%);
+    border: 1px solid darken($color-wine, 6%);
+    transition: all 100ms linear;
+  }
+
+  .lf-spinner.lf-spinner-btn-primary svg::after {
+    background: darken($color-wine, 6%);
+    border: 1px solid darken($color-wine, 6%);
+    transition: all 100ms linear;
+  }
+}
+
+.btn-primary:active:not(.disabled):not(:disabled) {
+  .lf-spinner.lf-spinner-btn-primary svg {
+    background: darken($color-wine, 11%);
+  }
+
+  .lf-spinner.lf-spinner-btn-primary::after {
+    background: darken($color-wine, 11%);
+    border: 1px solid darken($color-wine, 11%);
+  }
+}
+
+/**
+ * btn-outline spinner states
+ **/
+.lf-spinner.lf-spinner-btn-outline::after {
+  @extend .pie::after;
+
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background 100ms linear;
+}
+
+.lf-spinner.lf-spinner-btn-outline-secondary::after {
+  @extend .pie::after;
+
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background 100ms linear;
+}
+
+.btn-outline-primary:hover:not(.disabled):not(:disabled),
+.btn-outline-primary:active:not(.disabled):not(:disabled),
+.btn-outline-primary:focus:not(.disabled):not(:disabled) {
+  .lf-spinner.lf-spinner-btn-outline svg {
+    background: darken($color-wine, 6%);
+    color: $color-white;
+    transition: background 100ms linear;
+  }
+
+  .lf-spinner.lf-spinner-btn-outline svg::after {
+    background: darken($color-wine, 6%);
+    border: 1px solid darken($color-wine, 6%);
+    transition: background, border 100ms linear;
+  }
+}
+
+.btn-outline-primary:active:not(.disabled):not(:disabled),
+.btn-outline-primary:active:hover:not(.disabled):not(:disabled) {
+  .lf-spinner.lf-spinner-btn-outline svg {
+    background: darken($color-wine, 11%);
+  }
+
+  .lf-spinner.lf-spinner-btn-outline svg::after {
+    background: darken($color-wine, 11%);
+    border: 1px solid darken($color-wine, 11%);
+  }
+}
+
+.btn-outline-secondary:hover:not(.disabled):not(:disabled),
+.btn-outline-secondary:focus:not(.disabled):not(:disabled),
+.btn-outline-secondary:focus:hover:not(.disabled):not(:disabled) {
+  .lf-spinner.lf-spinner-btn-outline-secondary svg {
+    background: darken($color-navy, 3%);
+    color: $color-white;
+    transition: all 100ms linear;
+  }
+
+  .lf-spinner.lf-spinner-btn-outline-secondary svg::after {
+    background: $color-navy;
+    border: 1px solid $color-navy;
+    transition: background, border 100ms linear;
+  }
+}
+
+.btn-outline-secondary:active:not(.disabled):not(:disabled),
+.btn-outline-secondary:active:hover:not(.disabled):not(:disabled) {
+  .lf-spinner.lf-spinner-btn-outline-secondary svg {
+    background: darken($color-navy, 7%);
+  }
+
+  .lf-spinner.lf-spinner-btn-outline-secondary svg::after {
+    background: darken($color-navy, 7%);
+    border: 1px solid darken($color-navy, 7%);
+  }
+}
+
+/**
+ * Animations
+ **/
+
+// Rotate the spinner
+@keyframes spinnerRotate {
+  0% {
+    transform: rotate(-110deg);
+  }
+
+  100% {
+    transform: rotate(250deg);
+  }
+}
+
+// Scale the inner part
+@keyframes spinnerScale {
+  0%,
+  100% {
+    stroke-dasharray: 275;
+  }
+
+  50% {
+    stroke-dasharray: 360;
+  }
+}
+
+// Scale the inner part, but make it more of
+// a complete circle before shrinking back
+@keyframes spinnerScaleCircle {
+  0%,
+  100% {
+    stroke-dasharray: 380;
+    stroke-dashoffset: 335;
+  }
+
+  50% {
+    stroke-dasharray: 380;
+    stroke-dashoffset: 240;
+  }
+}
+
+// Rotate the second separator line along with the inner part.
+@keyframes spinnerAxisRotate {
+  0%,
+  100% {
+    transform: rotate(30deg);
+  }
+
+  50% {
+    transform: rotate(136deg);
+  }
+}

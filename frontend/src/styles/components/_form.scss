@@ -1,0 +1,28 @@
+.form {
+  &__group {
+    border-bottom: 1px solid $color-grey-light;
+    padding: .5em 0;
+  }
+
+  &__product {
+    display: inline-block;
+    width: 100%;
+
+    @include respond-to(md-up) {
+      width: 30%;
+    }
+  }
+
+  &__variants {
+    border-bottom: 1px solid $color-black;
+  }
+
+  &__variant {
+    display: inline-block;
+    width: 100%;
+
+    @include respond-to(md-up) {
+      width: 40%;
+    }
+  }
+}

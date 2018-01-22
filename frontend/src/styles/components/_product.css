@@ -1,0 +1,7 @@
+.product {
+  border-bottom: 2px solid black;
+  margin: 0;
+  padding: 10px; }
+
+.product:first-of-type {
+  border-top: 2px solid; }

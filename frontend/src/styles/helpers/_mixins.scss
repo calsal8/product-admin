@@ -1,0 +1,258 @@
+@mixin respond-to($media) {
+  @if $media == xxs-only {
+    @media (max-width: $screen-xxs-max) {
+      @content;
+    }
+  } @else if $media == xs-only {
+    @media (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
+      @content;
+    }
+  } @else if $media == xs-up {
+    @media (min-width: $screen-xs-min) {
+      @content;
+    }
+  } @else if $media == xs-down {
+    @media (max-width: $screen-xs-max) {
+      @content;
+    }
+  } @else if $media == sm-only {
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      @content;
+    }
+  } @else if $media == sm-up {
+    @media (min-width: $screen-sm-min) {
+      @content;
+    }
+  } @else if $media == sm-down {
+    @media (max-width: $screen-sm-max) {
+      @content;
+    }
+  } @else if $media == md-only {
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      @content;
+    }
+  } @else if $media == md-up {
+    @media (min-width: $screen-md-min) {
+      @content;
+    }
+  } @else if $media == md-down {
+    @media (max-width: $screen-md-max) {
+      @content;
+    }
+  } @else if $media == lg-only {
+    @media (min-width: $screen-lg-min) {
+      @content;
+    }
+  } @else if $media == wide-screen {
+    @media (min-width: $w-screen-wide) {
+      @content;
+    }
+  } @else if $media == mobile-modal {
+    @media (max-width: $screen-xs-max) {
+      .touchevents & {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin respond-between($media1, $media2) {
+
+  @if $media1 != $media2 {
+    @if (map_get($breakpoints, $media1) < map_get($breakpoints, $media2)) {
+      @media (min-width: map_get($breakpointsMin, $media1)) and (max-width: map_get($breakpointsMax, $media2)) {
+        @content;
+      }
+    } @else {
+      @media (min-width: map_get($breakpointsMin, $media2)) and (max-width: map_get($breakpointsMax, $media1)) {
+        @content;
+      }
+    }
+  }
+
+}
+
+@mixin respond-to-min($screenWidth) {
+  @media (min-width: $screenWidth) {
+    @content;
+  }
+}
+
+@mixin respond-to-max($screenWidth) {
+  @media (max-width: $screenWidth) {
+    @content;
+  }
+}
+
+@mixin respond-to-height-min($screenHeight) {
+  @media (min-height: $screenHeight) {
+    @content;
+  }
+}
+
+@mixin respond-to-height-max($screenHeight) {
+  @media (max-height: $screenHeight) {
+    @content;
+  }
+}
+
+@mixin list-style-none() {
+  list-style: none;
+  padding: 0;
+}
+
+@mixin ellipsis() {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: hidden;
+}
+
+@mixin ellipsis-nowrap() {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin clearfix() {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin pattern-wave-horizontal() {
+  background: url($base64-wave) repeat-x;
+  height: 10px;
+  width: 100%;
+}
+
+@mixin pattern-diagonal-stripes($bg-color: #c8e1f5 , $stripe-color: #badaf3) {
+  background: repeating-linear-gradient(
+                  45deg,
+                  $stripe-color,
+                  $stripe-color 1px,
+                  $bg-color 2px,
+                  $bg-color 10px
+  );
+}
+
+@mixin btn-no-style() {
+  appearance: none;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+}
+
+@mixin styled-ul() {
+  list-style: none;
+  padding-left: 20px;
+
+  li {
+    margin-bottom: 1em;
+
+    &:before {
+      content: '';
+      background-color: $color-sky;
+      color: $color-white;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin: 0 10px 0 -20px;
+    }
+  }
+}
+
+@mixin styled-ol() {
+  counter-reset: my-orderlist-counter;
+  list-style: none;
+  padding: 0 0 5px 0;
+  margin: 2rem 0;
+  line-height: 1.6em;
+
+  li {
+    position: relative;
+    min-height: 2.3em;
+    padding-left: 3em;
+    padding-top: .4em;
+
+    &:before {
+      content: counter(my-orderlist-counter);
+      counter-increment: my-orderlist-counter;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1.6em;
+      height: 1.6em;
+      line-height: 1.6em;
+      font-size: 1.6em;
+      font-family: $font-family-regular;
+      background-color: $color-sky;
+      color: $color-white;
+      display: inline-block;
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    + li {
+      margin-top: 1em;
+    }
+  }
+}
+
+@mixin placeholderFocusColor($color, $focus-color, $font-family) {
+
+  &::-webkit-input-placeholder {
+    color: $color;
+    transition: color .3s ease;
+    @if $font-family {
+      font-family: $font-family
+    }
+  }
+
+  &:-moz-placeholder {
+    color: $color;
+    transition: color .3s ease;
+    @if $font-family {
+      font-family: $font-family
+    }
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+    transition: color .3s ease;
+    @if $font-family {
+      font-family: $font-family
+    }
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+    transition: color .3s ease;
+    @if $font-family {
+      font-family: $font-family
+    }
+  }
+
+  &:focus {
+    &::-webkit-input-placeholder {
+      color: $focus-color;
+    }
+
+    &:-moz-placeholder {
+      color: $focus-color;
+    }
+
+    &::-moz-placeholder {
+      color: $focus-color;
+    }
+
+    &:-ms-input-placeholder {
+      color: $focus-color;
+    }
+  }
+
+}

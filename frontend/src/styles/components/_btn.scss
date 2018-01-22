@@ -1,0 +1,179 @@
+.btn {
+  border: none;
+  border-radius: 0;
+  outline: 0;
+  font-size: $font-size-btn;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  overflow: hidden;
+  letter-spacing: .08em;
+  background-color: transparent;
+  padding: .6em 1em;
+  margin: .6em 0;
+  user-select: none;
+  transition: .3s background-color, .3s color, border .3s;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  .btn__group & {
+    margin: 10px;
+  }
+
+  &--warning {
+    border: 2px solid $color-brand;
+    color: $color-brand;
+
+    &:before {
+      background: $color-brand;
+    }
+
+    &:hover {
+      background-color: $color-brand;
+      border: 2px solid $color-wine;
+      color: $color-base;
+    }
+  }
+
+  &--add {
+    border: 2px solid $color-green;
+    color: $color-green;
+
+    &:before {
+      background: $color-green;
+    }
+
+    &:hover {
+      background-color: $color-green;
+      border: 2px solid darken($color-green, 30%);
+      color: $color-base;
+    }
+  }
+
+  &--danger {
+    border: 2px solid $color-wine;
+    color: $color-wine;
+
+    &:hover {
+      background-color: $color-wine;
+      border: 2px solid $color-black;
+      color: $color-base;
+    }
+  }
+
+  &--no-style {
+    padding: 0;
+    background-color: transparent;
+    color: inherit;
+    border: 0;
+    outline: none;
+    font-weight: lighter;
+  }
+
+  &--no-margin {
+    margin: 0;
+  }
+
+  &--center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+
+  &--lg {
+    min-width: 160px;
+    padding: .8em 1.2em;
+    font-size: $font-size-btn-lg;
+  }
+
+  &--sm {
+    padding: .4em .8em;
+    font-size: $font-size-btn-sm;
+  }
+
+  &--opacity {
+    opacity: .5;
+  }
+
+  &__group {
+    margin: -10px;
+  }
+
+  &--slide {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+
+    &:hover {
+      background-color: transparent;
+      text-shadow: none;
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      height: 0;
+      width: 0;
+      z-index: -1;
+      color: black;
+      transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    }
+
+    &-up {
+      &:before {
+        width: 100%;
+        left: 0;
+      }
+
+      &:hover:before {
+        bottom: 0;
+        top: auto;
+        height: 100%;
+      }
+    }
+
+    &-right {
+      &:before {
+        height: 100%;
+        left: 0;
+      }
+
+      &:hover:before {
+        width: 100%;
+        bottom: 0;
+        top: auto;
+      }
+    }
+
+    &-left {
+      &:before {
+        height: 100%;
+        right: 0;
+      }
+
+      &:hover:before {
+        width: 100%;
+        bottom: 0;
+        top: auto;
+      }
+    }
+    &-opacity:before {
+      opacity: .4;
+    }
+  }
+}
+
+button {
+  cursor: pointer;
+}
