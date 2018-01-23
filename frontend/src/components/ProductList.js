@@ -54,7 +54,7 @@ class App extends Component {
         <button className={'btn btn--add btn--lg btn--center btn--slide btn--slide-up'} onClick={this.openModal}>Add product</button>
         <Modal showModal={this.state.showModal} onClose={this.closeModal}/>
         <div className={'list'}>
-          <div className={'table'}>
+          <div className={'table bold'}>
             <div className={'table__cell'}>Name</div>
             <div className={'table__cell'}>Variant</div>
             <div className={'table__cell'}>Price</div>

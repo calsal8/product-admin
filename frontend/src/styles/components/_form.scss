@@ -29,6 +29,9 @@
   }
 
   &__delete-btn {
+    width: 2em;
+    height: 2em;
     margin-left: auto;
+    flex-shrink: 0;
   }
 }

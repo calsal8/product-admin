@@ -169,7 +169,7 @@ class Modal extends React.Component {
                    onChange={(e) => this.handleVariantInputChange(e, i, 'price')}/>
             <label htmlFor={`variant-price-${i}`}><span>Price</span></label>
           </div>
-          <button type={'button'} className={'btn btn--warning btn--sm form__delete-btn'} onClick={()=> this.removeVariantInput(i)}><i className={'far fa-minus-square'}/></button>
+          <button type={'button'} className={'btn btn--warning btn--no-padding form__delete-btn'} onClick={()=> this.removeVariantInput(i)}><i className={'far fa-minus-square'}/></button>
         </div>
       })
     }

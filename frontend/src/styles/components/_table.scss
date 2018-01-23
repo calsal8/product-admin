@@ -4,19 +4,35 @@
   position: relative;
   margin: 0;
   padding: 10px 0;
+  align-items: center;
 
   &__cell {
-    box-sizing: border-box;
+    width: 15%;
     flex-grow: 1;
-    width: 25%;
-    padding: 0.8em 1.2em;
+    padding: 0.8em 0;
     overflow: hidden;
     font-size: $font-size-text-lg;
     list-style: none;
 
+    &:first-child {
+      width: 40%;
+
+      @include respond-to(sm-up) {
+        width: 25%;
+      }
+    }
+
+    @include respond-to(sm-up) {
+      width: 25%;
+      padding: 0.8em 1.2em;
+    }
+
     &__chev {
-      margin-left: 1em;
       transition: transform .3s ease;
+
+      @include respond-to(sm-up) {
+        margin-left: 1em;
+      }
       .product--open & {
         transform: rotate(-180deg);
       }
@@ -24,8 +40,12 @@
   }
 
   &__btn {
-    position: initial;
+    position: relative;
     color: $color-black;
+
+    @include respond-to(sm-up) {
+      position: initial;
+    }
 
     &:before {
       background: $color-brand;
