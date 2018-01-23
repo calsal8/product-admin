@@ -32,10 +32,14 @@ class Product extends Component {
 
   render() {
     return (
-      <div className={'product'}>
+      <div className={this.state.expanded ? 'product product--open' : 'product'}>
         <div className={'table'}>
           <div className={'table__cell'}>{this.props.product}</div>
-          <button className={'btn--no-style table__cell'} onClick={this.toggleExpand}>{this.state.multipleVariants ? this.props.variants.length : ''}</button>
+          {this.state.multipleVariants ?
+            <button className={'btn--no-style table__cell'} onClick={this.toggleExpand}>
+              <span>{this.props.variants.length}<i className='fas fa-chevron-down table__cell__chev'/></span>
+            </button>
+            : <div className={'table__cell'}/>}
           <div className={'table__cell'}>{VariantsHelper.getPriceFormatted(this.props.variants)}</div>
           <button className={'btn btn--no-margin btn--slide btn--slide-left btn--slide-opacity table__cell table__btn'}
                   onClick={this.props.onEdit.bind(this, this.props.id)}>Edit</button>

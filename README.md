@@ -32,7 +32,7 @@ The frontend application is built in Javascript [React framework](https://reactj
 
 ### Things that are missing/coming
 
-* Validation of input values are not enough, this will be improved.
+* Components should be broken down to smaller components
 * A nice animated loader
 * Icons for remove, add etc.
 * BUG: Editing an existing product and press 'Cancel' updates the info in product list, but not in the database. Pressing 'Cancel' should not affect any data.

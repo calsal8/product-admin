@@ -13,6 +13,14 @@
     overflow: hidden;
     font-size: $font-size-text-lg;
     list-style: none;
+
+    &__chev {
+      margin-left: 1em;
+      transition: transform .3s ease;
+      .product--open & {
+        transform: rotate(-180deg);
+      }
+    }
   }
 
   &__btn {

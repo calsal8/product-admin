@@ -10,6 +10,7 @@
 
     @include respond-to(md-up) {
       width: 30%;
+      margin: 1em 0;
     }
   }
 

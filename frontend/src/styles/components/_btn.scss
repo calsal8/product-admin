@@ -88,10 +88,6 @@
     font-weight: lighter;
   }
 
-  &--no-margin {
-    margin: 0;
-  }
-
   &--center {
     margin-left: auto;
     margin-right: auto;
@@ -108,6 +104,11 @@
     font-size: $font-size-btn-lg;
   }
 
+  &--xl {
+    padding: 1em 1.5em;
+    font-size: $font-size-btn-xl;
+  }
+
   &--sm {
     padding: .4em .8em;
     font-size: $font-size-btn-sm;
@@ -115,6 +116,14 @@
 
   &--opacity {
     opacity: .5;
+  }
+
+  &--no-margin {
+    margin: 0;
+  }
+
+  &--no-padding {
+    padding: 0;
   }
 
   &__group {

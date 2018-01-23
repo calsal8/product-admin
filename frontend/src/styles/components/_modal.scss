@@ -2,4 +2,14 @@
   &__Overlay {
     z-index: 10;
   }
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $color-black;
+
+    &:hover {
+      color: $color-brand;
+    }
+  }
 }
