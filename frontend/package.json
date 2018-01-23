@@ -11,7 +11,8 @@
     "react-scripts": "1.0.17"
   },
   "scripts": {
-    "start": "react-scripts start && watch-css",
+    "start": "npm run build-css && react-scripts start",
+    "dev": "react-scripts start | npm run watch-css",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
