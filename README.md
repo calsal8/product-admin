@@ -23,6 +23,7 @@ The frontend application is built in Javascript [React framework](https://reactj
     2. Run `source env/bin/activate` (On Windows use `env\Scripts\activate`)
     3. Run `pip install -r requirements.txt`
     4. Run `./manage.py runserver` and keep it running
+    5. Browse `http://localhost:8000/api/`, if you want to
 3. Start local server for frontend environment
     1. Open another terminal and `cd` to `product-admin/frontend`
     2. Run `npm install`
