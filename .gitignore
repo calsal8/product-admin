@@ -1,0 +1,28 @@
+# dependencies
+/frontend/node_modules
+
+# testing
+/frontend/coverage
+
+# production
+/frontend/build
+
+# python
+api/env
+*.pyc
+__pycache__
+
+# misc
+.DS_Store
+.idea
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/frontend/src/styles/**/*.css
+/frontend/src/styles/*.css
+/frontend/src/*.css
