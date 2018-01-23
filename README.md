@@ -11,8 +11,10 @@ The frontend application is built in Javascript [React framework](https://reactj
 
 ## Requirements
 
-* Python virtualenv
-* Node
+* Python
+* pip 
+* virtualenv
+* npm
 
 ## Installation
 
@@ -23,7 +25,7 @@ The frontend application is built in Javascript [React framework](https://reactj
     2. Run `source env/bin/activate` (On Windows use `env\Scripts\activate`)
     3. Run `pip install -r requirements.txt`
     4. Run `./manage.py runserver` and keep it running
-    5. Browse `http://localhost:8000/api/`, if you want to
+    5. Browse `http://localhost:8000/api/`, if you want to check the api UI
 3. Start local server for frontend environment
     1. Open another terminal and `cd` to `product-admin/frontend`
     2. Run `npm install`
@@ -34,5 +36,4 @@ The frontend application is built in Javascript [React framework](https://reactj
 
 * Components should be broken down to smaller components
 * A nice animated loader
-* Icons for remove, add etc.
-* BUG: Editing an existing product and press 'Cancel' updates the info in product list, but not in the database. Pressing 'Cancel' should not affect any data.
+* BUG: After edit of an existing product´s variant and press 'Close' button, it updates the info in product list, but not in the database. Pressing 'Close' button should not affect any data.
