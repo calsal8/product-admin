@@ -147,7 +147,7 @@ class Modal extends React.Component {
         </div>
         <div className={'form__product'}>
           <input type={'number'} id={'product-price'} className={this.state.productInfo.productPrice ? 'valid' : ''}
-                 autoComplete='off' defaultValue={this.state.productInfo.productPrice}
+                 autoComplete='off' value={this.state.productInfo.productPrice}
                  onChange={(e) => this.handleProductInputChange(e, 'productPrice')}/>
           <label htmlFor={'product-price'}><span>Price</span></label>
         </div>
@@ -161,12 +161,12 @@ class Modal extends React.Component {
         return <div key={i} className={'form__group'}>
           <div className={'form__variant'}>
             <input type={'text'} className={item.variant_name ? 'valid' : ''} id={`variant-name-${i}`} value={item.variant_name}
-                   onChange={(e) => this.handleVariantInputChange(e, i, 'variant_name')}/>
+                   onChange={(e) => this.handleVariantInputChange(e, i, 'variant_name')} autoComplete='off'/>
             <label htmlFor={`variant-name-${i}`}><span>Name</span></label>
           </div>
           <div className={'form__variant'}>
             <input type={'number'} className={item.price ? 'valid' : ''} id={`variant-price-${i}`} value={item.price}
-                   onChange={(e) => this.handleVariantInputChange(e, i, 'price')}/>
+                   onChange={(e) => this.handleVariantInputChange(e, i, 'price')} autoComplete='off'/>
             <label htmlFor={`variant-price-${i}`}><span>Price</span></label>
           </div>
           <button type={'button'} className={'btn btn--warning btn--no-padding form__delete-btn'} onClick={()=> this.removeVariantInput(i)}><i className={'far fa-minus-square'}/></button>
