@@ -169,7 +169,7 @@ class Modal extends React.Component {
                    onChange={(e) => this.handleVariantInputChange(e, i, 'price')}/>
             <label htmlFor={`variant-price-${i}`}><span>Price</span></label>
           </div>
-          <button type={'button'} className={'btn btn--warning btn--sm'} onClick={()=> this.removeVariantInput(i)}><i className={'far fa-minus-square'}/></button>
+          <button type={'button'} className={'btn btn--warning btn--sm form__delete-btn'} onClick={()=> this.removeVariantInput(i)}><i className={'far fa-minus-square'}/></button>
         </div>
       })
     }
@@ -190,7 +190,7 @@ class Modal extends React.Component {
           </div>
           <button type={'submit'} className={'btn btn--add btn--lg btn--slide btn--slide-up'} disabled={!this.validatedData()}>Save <i className={'far fa-check-circle'}/></button>
         </form>
-        {this.state.productToEdit && <button className={'btn btn--danger'} onClick={this.handleDelete}>Delete!</button>}
+        {this.state.productToEdit && <button className={'btn btn--danger ReactModal__delete'} onClick={this.handleDelete}>Delete!</button>}
         <button className={'btn btn--xl btn--no-margin btn--no-padding ReactModal__close'} onClick={this.props.onClose}><i className={'far fa-window-close'}/></button>
       </ReactModal>
     </div>

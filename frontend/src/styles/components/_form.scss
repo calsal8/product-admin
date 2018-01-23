@@ -1,5 +1,6 @@
 .form {
   &__group {
+    display: flex;
     border-bottom: 1px solid $color-grey-light;
     padding: .5em 0;
   }
@@ -25,5 +26,9 @@
     @include respond-to(md-up) {
       width: 40%;
     }
+  }
+
+  &__delete-btn {
+    margin-left: auto;
   }
 }

@@ -2,6 +2,7 @@
   &__Overlay {
     z-index: 10;
   }
+
   &__close {
     position: absolute;
     top: 0;
@@ -11,5 +12,11 @@
     &:hover {
       color: $color-brand;
     }
+  }
+
+  &__delete {
+    position: absolute;
+    bottom: 0;
+    right: 1%;
   }
 }
