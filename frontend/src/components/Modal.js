@@ -24,6 +24,7 @@ class Modal extends React.Component {
     this.handleVariantInputChange = this.handleVariantInputChange.bind(this);
     this.handleProductInputChange = this.handleProductInputChange.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.validatedData = this.validatedData.bind(this);
   }
 
   componentWillMount() {
@@ -87,6 +88,17 @@ class Modal extends React.Component {
   handleDelete() {
     ProductActions.deleteProduct(this.state.productToEdit);
     this.props.onClose();
+  }
+
+  validatedData() {
+    if (this.state.variantInputs.length > 0) {
+      const validatedVariants = this.state.variantInputs.every(i => i.variant_name && i.price);
+      return !!this.state.productInfo.productName &&
+        validatedVariants;
+    } else {
+      return !!this.state.productInfo.productName &&
+        !!this.state.productInfo.productPrice;
+    }
   }
 
   removeVariantInput(index) {
@@ -176,7 +188,7 @@ class Modal extends React.Component {
             {this.renderVariantInputs()}
             <button type={'button'} className={'btn btn--add btn--slide btn--slide-right'} onClick={() => this.addVariantInputs()}>Add Variant</button>
           </div>
-          <button type={'submit'} className={'btn btn--add btn--lg btn--slide btn--slide-up'}>Save</button>
+          <button type={'submit'} className={'btn btn--add btn--lg btn--slide btn--slide-up'} disabled={!this.validatedData()}>Save</button>
         </form>
         {this.state.productToEdit && <button className={'btn btn--danger'} onClick={this.handleDelete}>Delete!</button>}
         <button className={'btn btn--warning'} onClick={this.props.onClose}>Cancel</button>
