@@ -3,6 +3,30 @@
     display: flex;
     border-bottom: 1px solid $color-grey-light;
     padding: .5em 0;
+
+    &-enter {
+      transform: scaleX(0);
+      background-color: #f7e4df;
+
+      &-active {
+        transform: scaleX(1);
+        transform-origin: left;
+        transition: opacity 500ms ease-in, transform .3s, background-color 0.6s;
+        background-color: transparent;
+      }
+    }
+
+    &-leave {
+      transform: scaleX(1);
+      background-color: transparent;
+
+      &-active {
+        transform: scaleX(0);
+        background-color: #f7e4df;
+        transform-origin: left;
+        transition: opacity 500ms ease-in, transform .3s, background-color 0.6s;
+      }
+    }
   }
 
   &__product {

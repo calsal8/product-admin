@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal'
+import { CSSTransitionGroup } from 'react-transition-group'
 import * as ProductActions from '../actions/ProductActions';
 import ProductStore from '../stores/ProductStore';
 import VariantsHelper from '../helpers/VariantsHelper'
@@ -121,21 +122,21 @@ class Modal extends React.Component {
   renderProductFormGroup() {
     if (this.state.productToEdit) {
       const priceDisabled = this.state.productToEdit.variants.length > 1;
-        return <div className={'form__group'}>
-          <div className={'form__product'}>
-            <input type={'text'} id={'product-name'} className={this.state.productInfo.productName ? 'valid' : ''}
-                   value={this.state.productInfo.productName} autoComplete='off'
-                   onChange={(e) => this.handleProductInputChange(e, 'productName')}/>
-            <label htmlFor={'product-name'}><span>Name</span></label>
-          </div>
-          <div className={'form__product'}>
-            <input type={priceDisabled ? 'text' : 'number'} id={'product-price'} className={this.state.productInfo.productPrice ? 'valid' : ''}
-                   value={this.state.productInfo.productPrice} autoComplete='off'
-                   onChange={(e) => this.handleProductInputChange(e, 'productPrice')}
-                   disabled={priceDisabled}/>
-            <label htmlFor={'product-price'}><span>Price</span></label>
-          </div>
+      return <div className={'form__group'}>
+        <div className={'form__product'}>
+          <input type={'text'} id={'product-name'} className={this.state.productInfo.productName ? 'valid' : ''}
+                 value={this.state.productInfo.productName} autoComplete='off'
+                 onChange={(e) => this.handleProductInputChange(e, 'productName')}/>
+          <label htmlFor={'product-name'}><span>Name</span></label>
         </div>
+        <div className={'form__product'}>
+          <input type={priceDisabled ? 'text' : 'number'} id={'product-price'} className={this.state.productInfo.productPrice ? 'valid' : ''}
+                 value={this.state.productInfo.productPrice} autoComplete='off'
+                 onChange={(e) => this.handleProductInputChange(e, 'productPrice')}
+                 disabled={priceDisabled}/>
+          <label htmlFor={'product-price'}><span>Price</span></label>
+        </div>
+      </div>
     } else {
       return <div className={'form__group'}>
         <div className={'form__product'}>
@@ -176,24 +177,29 @@ class Modal extends React.Component {
   }
 
   render () {
-    return <div>
-      <ReactModal
-        isOpen={this.props.showModal}
-        contentLabel="Administrate product">
-        <h3 className={'headline'}>{this.state.productToEdit !== null ? 'Edit Product' : 'Add Product'}</h3>
-        <form id={'form'} className={'form'} onSubmit={this.handleSubmit}>
-          {this.renderProductFormGroup()}
-          <div className={'form__variants'}>
-            <h4 className={'headline'}>Variants</h4>
+    return <ReactModal
+      isOpen={this.props.showModal}
+      contentLabel="Administrate product">
+      <h3 className={'headline'}>{this.state.productToEdit !== null ? 'Edit Product' : 'Add Product'}</h3>
+      <form id={'form'} className={'form'} onSubmit={this.handleSubmit}>
+        {this.renderProductFormGroup()}
+        <div className={'form__variants'}>
+          <h4 className={'headline'}>Variants</h4>
+          <CSSTransitionGroup
+            transitionName="form__group"
+            transitionEnterTimeout={600}
+            transitionLeaveTimeout={400}>
+
             {this.renderVariantInputs()}
-            <button type={'button'} className={'btn btn--add btn--slide btn--slide-right'} onClick={() => this.addVariantInputs()}>Add Variant</button>
-          </div>
-          <button type={'submit'} className={'btn btn--add btn--lg btn--slide btn--slide-up'} disabled={!this.validatedData()}>Save <i className={'far fa-check-circle'}/></button>
-        </form>
-        {this.state.productToEdit && <button className={'btn btn--danger ReactModal__delete'} onClick={this.handleDelete}>Delete!</button>}
-        <button className={'btn btn--xl btn--no-margin btn--no-padding ReactModal__close'} onClick={this.props.onClose}><i className={'far fa-window-close'}/></button>
-      </ReactModal>
-    </div>
+          </CSSTransitionGroup>
+
+          <button type={'button'} className={'btn btn--add btn--slide btn--slide-right'} onClick={() => this.addVariantInputs()}>Add Variant</button>
+        </div>
+        <button type={'submit'} className={'btn btn--add btn--lg btn--slide btn--slide-up'} disabled={!this.validatedData()}>Save <i className={'far fa-check-circle'}/></button>
+      </form>
+      {this.state.productToEdit && <button className={'btn btn--danger ReactModal__delete'} onClick={this.handleDelete}>Delete!</button>}
+      <button className={'btn btn--xl btn--no-margin btn--no-padding ReactModal__close'} onClick={this.props.onClose}><i className={'far fa-window-close'}/></button>
+    </ReactModal>
   }
 }
 

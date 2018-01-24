@@ -1,6 +1,12 @@
 .ReactModal {
   &__Overlay {
     z-index: 10;
+    transform: translateY(-100%);
+    transition: transform .5s cubic-bezier(.65,1.81,.12,.7);
+
+    &--after-open {
+      transform: translateY(0);
+    }
   }
 
   &__close {
@@ -19,4 +25,13 @@
     bottom: 0;
     right: 1%;
   }
+}
+
+.modal-appear {
+  opacity: 0.01;
+}
+
+.modal-appear.modal-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
 }
