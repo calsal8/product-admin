@@ -8,15 +8,24 @@
 /frontend/build
 
 # python
-api/env
+api/.env
+api/.venv
+api/env/
+api/venv/
+api/ENV/
+api/env.bak/
+api/venv.bak/
 *.pyc
 __pycache__
+
 
 # misc
 .DS_Store
 .idea
 .env.local
+.env/*
 .env.development.local
+.env/*
 .env.test.local
 .env.production.local
 
