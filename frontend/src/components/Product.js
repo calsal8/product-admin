@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AnimateHeight from 'react-animate-height';
 import VariantsHelper from '../helpers/VariantsHelper';
 
 class Product extends Component {
@@ -44,9 +45,11 @@ class Product extends Component {
           <button className={'btn btn--no-margin btn--slide btn--slide-left btn--slide-opacity table__cell table__btn'}
                   onClick={this.props.onEdit.bind(this, this.props.id)}>Edit</button>
         </div>
-        <div className={this.state.expanded ? 'product__variants product__variants--open' : 'product__variants'}>
+        <AnimateHeight
+        duration={ 500 }
+        height={ this.state.expanded ? 'auto': 0 } >
           {this.renderVariants()}
-        </div>
+        </AnimateHeight>
       </div>
     );
   }

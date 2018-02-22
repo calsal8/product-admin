@@ -4,13 +4,6 @@
 
   &__variants {
     width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .6s;
-
-    &--open {
-      max-height: 14em;
-    }
 
     &__item {
       display: flex;
@@ -30,8 +23,4 @@
       }
     }
   }
-}
-
-.product:first-of-type {
-  border-top: 2px solid;
 }

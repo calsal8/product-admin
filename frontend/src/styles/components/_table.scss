@@ -6,6 +6,10 @@
   padding: 10px 0;
   align-items: center;
 
+  .list > & {
+    border-bottom: 2px solid;
+  }
+
   &__cell {
     width: 15%;
     flex-grow: 1;
